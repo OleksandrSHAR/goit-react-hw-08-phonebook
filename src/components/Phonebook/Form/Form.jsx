@@ -4,8 +4,8 @@ import toast from 'react-hot-toast';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectContacts } from 'components/redux/selectors';
-import { addContact } from 'components/redux/operations';
+import { selectContacts } from 'components/redux/contacts.jsx/selectors';
+import { addContact } from 'components/redux/contacts.jsx/operations';
 const validationSchema = Yup.object({
   name: Yup.string()
     .matches(
