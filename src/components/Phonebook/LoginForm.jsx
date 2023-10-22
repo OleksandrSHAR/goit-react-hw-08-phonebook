@@ -13,15 +13,13 @@ export const LoginForm = () => {
       })
     );
     form.reset();
-    console.log(e);
-    console.log(logIn);
   };
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <label>
         Email
-        <input type="email" name="email" />
+        <input type="email" name="email" autoComplete="email" />
       </label>
       <label>
         Password

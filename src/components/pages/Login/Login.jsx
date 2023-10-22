@@ -1,9 +1,10 @@
 import { LoginForm } from 'components/Phonebook/LoginForm';
 
-export default function Login() {
+const Login = () => {
   return (
     <div>
       <LoginForm />
     </div>
   );
-}
+};
+export default Login;

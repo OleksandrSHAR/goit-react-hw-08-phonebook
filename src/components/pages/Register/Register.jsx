@@ -1,9 +1,10 @@
 import { RegisterForm } from 'components/Phonebook/RegisterForm';
 
-export default function Register() {
+const Register = () => {
   return (
     <div>
       <RegisterForm />
     </div>
   );
-}
+};
+export default Register;

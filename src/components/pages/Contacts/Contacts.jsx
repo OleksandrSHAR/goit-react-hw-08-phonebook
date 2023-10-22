@@ -1,7 +1,7 @@
 import { ContactList } from 'components/Phonebook/Contactlist/ContactList';
 import { Filter } from 'components/Phonebook/Filter/Filter';
 import { Forms } from 'components/Phonebook/Form/Form';
-import { Wrap, Titel } from '../App.style';
+import { Wrap, Titel } from '../../App.style';
 import { useSelector } from 'react-redux';
 import {
   selectError,

@@ -1,4 +1,5 @@
 import { register } from 'components/redux/auth/operations';
+import toast from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 
 export const RegisterForm = () => {
@@ -6,6 +7,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+
     const form = e.currentTarget;
     dispatch(
       register({
@@ -14,6 +16,7 @@ export const RegisterForm = () => {
         password: form.elements.password.value,
       })
     );
+    toast.error('This contact already exists');
     form.reset();
   };
   return (
@@ -28,7 +31,7 @@ export const RegisterForm = () => {
       </label>
       <label>
         Password
-        <input type="password" name="password" autoComplete="new-password" />
+        <input type="password" name="password" autoComplete="password" />
       </label>
       <button type="submit">Register</button>
     </form>

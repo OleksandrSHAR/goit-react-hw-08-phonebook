@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectContacts } from 'components/redux/contacts.jsx/selectors';
 import { addContact } from 'components/redux/contacts.jsx/operations';
+
 const validationSchema = Yup.object({
   name: Yup.string()
     .matches(
@@ -13,9 +14,9 @@ const validationSchema = Yup.object({
       'Name must not contain characters'
     )
     .required(''),
-  phone: Yup.string()
-    .min(5, 'Too short  phone')
-    .max(10, 'Too long phone')
+  number: Yup.string()
+    .min(5, 'Too short  number')
+    .max(10, 'Too long number')
     .matches(
       /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
       'Must have only numbers'
@@ -27,14 +28,16 @@ const validationSchema = Yup.object({
 export const Forms = () => {
   const dispatch = useDispatch();
   const contact = useSelector(selectContacts);
-  const onSubmit = ({ name, phone }) => {
+  const onSubmit = ({ name, number }) => {
     if (
-      contact.find(contact => contact.phone === phone || contact.name === name)
+      contact.find(
+        contact => contact.number === number || contact.name === name
+      )
     ) {
       toast.error('This contact already exists');
       return;
     }
-    const newContacts = { name, phone };
+    const newContacts = { name, number };
     dispatch(addContact(newContacts));
     console.log(newContacts);
   };
@@ -49,7 +52,7 @@ export const Forms = () => {
         }}
         initialValues={{
           name: '',
-          phone: '',
+          number: '',
         }}
       >
         <Form>
@@ -65,11 +68,11 @@ export const Forms = () => {
             <FormTitel>Number</FormTitel>
             <Field
               type="tel"
-              name="phone"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              name="number"
+              title="Number number must be digits and can contain spaces, dashes, parentheses and can start with +"
               required
             />
-            <ErrorMessage name="phone" component="p" />
+            <ErrorMessage name="number" component="p" />
             <ButForm type="submit">Add contact</ButForm>
           </FormWrap>
         </Form>
