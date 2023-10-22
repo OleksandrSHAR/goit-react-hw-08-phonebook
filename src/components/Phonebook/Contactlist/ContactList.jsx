@@ -1,8 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { ContactWrap, ContactItem, ContactColect } from './ContactList.style';
 
-import { deleteContact } from 'components/redux/contacts.jsx/operations';
+import {
+  deleteContact,
+  fetchContacts,
+} from 'components/redux/contacts.jsx/operations';
 import { filterUser } from 'components/redux/contacts.jsx/selectors';
+import { useEffect } from 'react';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
@@ -10,6 +14,9 @@ export const ContactList = () => {
   const onDelete = user => {
     dispatch(deleteContact(user));
   };
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   return (
     <ContactWrap>
       <ContactColect>

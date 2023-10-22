@@ -7,7 +7,8 @@ import {
   selectError,
   selectIsLoading,
 } from 'components/redux/contacts.jsx/selectors';
-export const Contacts = () => {
+
+const Contacts = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   return (
@@ -21,3 +22,4 @@ export const Contacts = () => {
     </Wrap>
   );
 };
+export default Contacts;
