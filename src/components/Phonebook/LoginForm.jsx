@@ -9,7 +9,7 @@ export const LoginForm = () => {
     dispatch(
       logIn({
         email: form.elements.email.value,
-        password: form.elements.password.values,
+        password: form.elements.password.value,
       })
     );
     form.reset();
@@ -21,6 +21,7 @@ export const LoginForm = () => {
         Email
         <input type="email" name="email" autoComplete="email" />
       </label>
+
       <label>
         Password
         <input type="password" name="password" />

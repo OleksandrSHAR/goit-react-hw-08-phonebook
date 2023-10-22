@@ -1,22 +1,22 @@
 import { useDispatch } from 'react-redux';
 
 import { useEffect, lazy } from 'react';
-// import { fetchContacts } from './redux/contacts.jsx/operations';
+
 import { useAuth } from 'components/useAuth';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from 'components/Layout';
 import { RestrictedRoute } from './RestrictedRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { refreshUser } from './redux/auth/operations';
-// import Home from './pages/Home/Home';
-// import Register from './pages/Register/Register';
-// import Login from './pages/Login/Login';
-// import { Contacts } from './pages/Contacts/Contacts';
+import Home from './pages/Home/Home';
+import Register from './pages/Register/Register';
+import Login from './pages/Login/Login';
+import { Contacts } from './pages/Contacts/Contacts';
 
-const Home = lazy(() => import('./pages/Home/Home'));
-const Register = lazy(() => import('./pages/Register/Register'));
-const Login = lazy(() => import('./pages/Login/Login'));
-const Contacts = lazy(() => import('./pages/Contacts/Contacts'));
+// const Home = lazy(() => import('./pages/Home/Home'));
+// const Register = lazy(() => import('./pages/Register/Register'));
+// const Login = lazy(() => import('./pages/Login/Login'));
+// const Contacts = lazy(() => import('./pages/Contacts/Contacts'));
 export const App = () => {
   const dispatch = useDispatch();
 
