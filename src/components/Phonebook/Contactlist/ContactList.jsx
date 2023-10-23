@@ -20,9 +20,9 @@ export const ContactList = () => {
   return (
     <ContactWrap>
       <ContactColect>
-        {filter.map(({ id, name, phone }) => (
+        {filter.map(({ id, name, number }) => (
           <ContactItem key={id}>
-            {name}: <span>{phone}</span>
+            {name}: <span>{number}</span>
             <button type="button" onClick={() => onDelete(id)}>
               Delete
             </button>
